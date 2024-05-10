@@ -16,6 +16,9 @@ class AppContainer extends GetView {
     this.floatingActionButton,
     this.showBanner = false,
     this.isCollapsible = true,
+    this.leftPadding,
+    this.rightPadding,
+    this.bottomPadding,
     this.onPopInvoked,
   }) : super(key: key);
 
@@ -31,6 +34,9 @@ class AppContainer extends GetView {
   final bool isCollapsible;
   final bool canWillPop = false;
   final PopInvokedCallback? onPopInvoked;
+  final double? leftPadding;
+  final double? rightPadding;
+  final double? bottomPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +56,16 @@ class AppContainer extends GetView {
             },
             child: Scaffold(
               resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-              backgroundColor: backgroundColor ?? AppColor.white,
+              backgroundColor: backgroundColor ?? AppColor.backgroundColor,
               appBar: appBar,
               body: SizedBox(
                 width: Get.width,
                 height: Get.height,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom,
+                    left: leftPadding ?? 0,
+                    right: rightPadding ?? 0,
+                    bottom: MediaQuery.of(context).padding.bottom + (bottomPadding ?? 0),
                   ),
                   child: child ?? const SizedBox.shrink(),
                 ),
