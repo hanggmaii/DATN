@@ -1,3 +1,4 @@
+import 'package:datn/presentation/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,6 +6,59 @@ class AppTextTheme {
   AppTextTheme._();
 
   static const String fontFamily = "Poppins";
+
+  static TextStyle? headerTextStyle = TextStyle(
+    color: AppColor.defaultTextColor,
+    fontWeight: FontWeight.w600,
+    fontSize: 16.0.sp,
+    fontFamily: fontFamily,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+  );
+
+  static TextStyle? fw600ts16(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w600,
+      fontSize: 16.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
+
+  static TextStyle? fw400ts14(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontSize: 14.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
+
+  static TextStyle? fw600ts14(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w600,
+      fontSize: 14.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
+
+  static TextStyle? fw400ts12(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontSize: 12.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
 
   static TextStyle? displayLarge(Color textColor) {
     return TextStyle(
