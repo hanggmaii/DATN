@@ -1,4 +1,3 @@
-import 'package:datn/presentation/screen/home/widget/group_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +7,8 @@ import '../../theme/app_text_theme.dart';
 import '../../widget/app_container.dart';
 import '../../widget/app_header.dart';
 import 'home_controller.dart';
-import 'widget/insight_widget.dart';
+import 'widget/group_button_widget.dart';
+import 'widget/insight_list_view_widget.dart';
 
 class HomeScreen extends BaseScreen<HomeController> {
   const HomeScreen({super.key});
@@ -63,7 +63,7 @@ class HomeScreen extends BaseScreen<HomeController> {
               ),
             ],
           ),
-          const InsightWidget(),
+          const InsightListViewWidget(),
         ],
       ),
     );

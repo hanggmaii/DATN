@@ -21,7 +21,7 @@ class HomeGroupButtonWidget extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: AppColor.secondColor,
-                borderRadius: BorderRadius.circular(20.0.sp),
+                borderRadius: BorderRadius.circular(28.0.sp),
               ),
               padding: EdgeInsets.symmetric(
                 horizontal: 12.0.sp,
@@ -96,7 +96,7 @@ class HomeGroupButtonWidget extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: AppColor.white,
-                      borderRadius: BorderRadius.circular(20.0.sp),
+                      borderRadius: BorderRadius.circular(28.0.sp),
                       border: Border.all(
                         color: AppColor.borderColor,
                         width: 0.5.sp,
@@ -127,7 +127,7 @@ class HomeGroupButtonWidget extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: AppColor.white,
-                      borderRadius: BorderRadius.circular(20.0.sp),
+                      borderRadius: BorderRadius.circular(28.0.sp),
                       border: Border.all(
                         color: AppColor.borderColor,
                         width: 0.5.sp,
