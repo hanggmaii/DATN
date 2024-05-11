@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../screen/alarm/alarm_binding.dart';
+import '../screen/alarm/alarm_screen.dart';
 import '../screen/blood_pressure/blood_pressure_binding.dart';
 import '../screen/blood_pressure/blood_pressure_screen.dart';
 import '../screen/heart_rate/heart_rate_binding.dart';
@@ -40,6 +42,11 @@ class AppPage {
       name: AppRoute.weightBmiScreen,
       page: () => const WeightBmiScreen(),
       binding: WeightBmiBinding(),
+    ),
+    GetPage(
+      name: AppRoute.alarmScreen,
+      page: () => const AlarmScreen(),
+      binding: AlarmBinding(),
     ),
   ];
 }
