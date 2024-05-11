@@ -1,3 +1,4 @@
+import 'package:datn/presentation/widget/app_touchable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,10 +41,13 @@ class HomeScreen extends BaseScreen<HomeController> {
                 style: AppTextTheme.headerTextStyle,
               ),
               const Spacer(),
-              Text(
-                "View all",
-                style: AppTextTheme.fw400ts14(
-                  AppColor.primaryColor,
+              AppTouchable(
+                onPressed: () {},
+                child: Text(
+                  "View all",
+                  style: AppTextTheme.fw400ts14(
+                    AppColor.primaryColor,
+                  ),
                 ),
               ),
             ],
@@ -55,10 +59,17 @@ class HomeScreen extends BaseScreen<HomeController> {
                 style: AppTextTheme.headerTextStyle,
               ),
               const Spacer(),
-              Text(
-                "View all",
-                style: AppTextTheme.fw400ts14(
-                  AppColor.primaryColor,
+              AppTouchable(
+                onPressed: () => controller.goToAllInsightScreen(),
+                padding: EdgeInsets.symmetric(
+                  vertical: 8.0.sp,
+                  horizontal: 4.0.sp,
+                ),
+                child: Text(
+                  "View all",
+                  style: AppTextTheme.fw400ts14(
+                    AppColor.primaryColor,
+                  ),
                 ),
               ),
             ],

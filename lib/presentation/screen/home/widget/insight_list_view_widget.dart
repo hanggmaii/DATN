@@ -27,6 +27,7 @@ class InsightListViewWidget extends GetWidget<HomeController> {
                     itemBuilder: (context, index) {
                       return InsightWidget(
                         data: controller.listInsight[index],
+                        showViewDetail: true,
                       );
                     },
                   ),

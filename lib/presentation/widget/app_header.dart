@@ -54,7 +54,7 @@ class AppHeader extends StatelessWidget {
         paddingBottom ?? 12.0.sp,
       ),
       decoration: BoxDecoration(
-        color: backgroundColor ?? AppColor.white,
+        color: backgroundColor ?? AppColor.backgroundColor,
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(radius ?? 12.0.sp),
           bottomLeft: Radius.circular(radius ?? 12.0.sp),
