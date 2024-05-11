@@ -20,7 +20,7 @@ class InsightDetailScreen extends StatelessWidget {
     return AppContainer(
       child: Column(
         children: [
-          AppHeader(
+          const AppHeader(
             title: "Detail",
           ),
           Text(

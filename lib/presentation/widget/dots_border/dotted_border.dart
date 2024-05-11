@@ -33,7 +33,8 @@ class DottedBorder extends StatelessWidget {
   final PathBuilder? customPath;
   final StackFit stackFit;
 
-  DottedBorder({super.key,
+  DottedBorder({
+    super.key,
     required this.child,
     this.color = Colors.black,
     this.gradient,

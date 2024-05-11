@@ -27,9 +27,9 @@ class AllInsightScreen extends StatelessWidget {
               child: ListView.builder(
                 itemCount: homeController.listInsight.length,
                 padding: EdgeInsets.fromLTRB(
-                  24.0.sp,
+                  12.0.sp,
                   6.0.sp,
-                  24.0.sp,
+                  12.0.sp,
                   12.0.sp,
                 ),
                 itemBuilder: (context, index) {

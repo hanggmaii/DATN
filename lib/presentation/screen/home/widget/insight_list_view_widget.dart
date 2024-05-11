@@ -23,6 +23,7 @@ class InsightListViewWidget extends GetWidget<HomeController> {
                   )
                 : ListView.builder(
                     padding: EdgeInsets.zero,
+                    physics: const ClampingScrollPhysics(),
                     itemCount: 4,
                     itemBuilder: (context, index) {
                       return InsightWidget(
