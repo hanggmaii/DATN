@@ -3,4 +3,7 @@ class AppRoute {
 
   static String splashScreen = "/splash_screen";
   static String homeScreen = "/home_screen";
+  static String heartRateScreen = "/heart_rate_screen";
+  static String bloodPressureScreen = "/blood_pressure_screen";
+  static String weightBmiScreen = "/weight_bmi_screen";
 }
