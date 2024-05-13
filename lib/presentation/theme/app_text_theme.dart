@@ -38,6 +38,17 @@ class AppTextTheme {
     );
   }
 
+  static TextStyle? fw600ts20(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w600,
+      fontSize: 20.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
+
   static TextStyle? fw600ts14(Color color) {
     return TextStyle(
       color: color,

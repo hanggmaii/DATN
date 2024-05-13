@@ -12,6 +12,7 @@ class AppColor {
   static const secondColor = Color(0xFFFF907A);
 
   static const defaultTextColor = Color(0xFF211F26);
+  static const secondTextColor = Color(0xFF65636D);
   static const whiteTextColor = white;
   static const blackTextColor = black;
   static const buttonTextColor = primaryColor;
