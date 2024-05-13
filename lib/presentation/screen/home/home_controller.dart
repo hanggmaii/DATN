@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../model/insight_model.dart';
 import '../../../utils/insight_util.dart';
 import '../../base/base_controller.dart';
+import '../../route/app_route.dart';
 import '../all_insight_screen.dart';
 
 class HomeController extends BaseController {
@@ -20,5 +21,21 @@ class HomeController extends BaseController {
 
   void goToAllInsightScreen() {
     Get.to(() => const AllInsightScreen());
+  }
+
+  void goToHeartRateScreen() {
+    Get.toNamed(AppRoute.heartRateScreen);
+  }
+
+  void goToBloodPressureScreen() {
+    Get.toNamed(AppRoute.bloodPressureScreen);
+  }
+
+  void goToWeightBmiScreen() {
+    Get.toNamed(AppRoute.weightBmiScreen);
+  }
+
+  void goToAlarmScreen() {
+    Get.toNamed(AppRoute.alarmScreen);
   }
 }

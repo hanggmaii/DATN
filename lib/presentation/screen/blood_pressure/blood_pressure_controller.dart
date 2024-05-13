@@ -1,3 +1,3 @@
-import 'package:datn/presentation/base/base_controller.dart';
+import '../../base/base_controller.dart';
 
 class BloodPressureController extends BaseController {}

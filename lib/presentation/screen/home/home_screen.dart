@@ -45,7 +45,10 @@ class HomeScreen extends BaseScreen<HomeController> {
                 ),
                 const Spacer(),
                 AppTouchable(
-                  onPressed: () {},
+                  onPressed: () => controller.goToAlarmScreen(),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 4.0.sp,
+                  ),
                   child: Text(
                     "View all",
                     style: AppTextTheme.fw400ts14(
@@ -67,9 +70,11 @@ class HomeScreen extends BaseScreen<HomeController> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 if (index == 0) {
-                  return SizedBox(
+                  return AppTouchable(
                     width: 100.0.sp,
                     height: 78.0.sp,
+                    onPressed: () => controller.goToAlarmScreen(),
+                    radius: 12.0.sp,
                     child: DottedBorder(
                       strokeWidth: 0.5.sp,
                       borderType: BorderType.RRect,
@@ -116,7 +121,6 @@ class HomeScreen extends BaseScreen<HomeController> {
               AppTouchable(
                 onPressed: () => controller.goToAllInsightScreen(),
                 padding: EdgeInsets.symmetric(
-                  vertical: 8.0.sp,
                   horizontal: 4.0.sp,
                 ),
                 child: Text(

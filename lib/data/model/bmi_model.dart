@@ -57,14 +57,16 @@ class BMIModel extends HiveObject {
 
   ///Use only Weight and BMI screen
   double get weightByCurrentUnit {
-    final id = getIt<LocalRepository>().getWeightUnitId();
-    final currentWeightUnit = WeightUnitEnum.getWeightUnitById(id);
-    final unit = WeightUnitEnum.getWeightUnitById(weightUnitId);
-    if (currentWeightUnit == unit) {
-      return weight ?? 0.0;
-    } else {
-      return currentWeightUnit.convertToUnit(weight ?? 0.0).roundDouble(1);
-    }
+    // final id = getIt<LocalRepository>().getWeightUnitId();
+    // final currentWeightUnit = WeightUnitEnum.getWeightUnitById(id);
+    // final unit = WeightUnitEnum.getWeightUnitById(weightUnitId);
+    // if (currentWeightUnit == unit) {
+    //   return weight ?? 0.0;
+    // } else {
+    //   return currentWeightUnit.convertToUnit(weight ?? 0.0).roundDouble(1);
+    // }
+
+    return 0.0;
   }
 
   double get heightCm {

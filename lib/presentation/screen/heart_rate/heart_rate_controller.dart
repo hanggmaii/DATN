@@ -1,3 +1,14 @@
-import '../../base/base_controller.dart';
+import 'package:get/get.dart';
 
-class HeartRateController extends BaseController {}
+import '../../base/base_controller.dart';
+import '../heart_rate_tutorial_screen.dart';
+
+class HeartRateController extends BaseController {
+  void goToHeartRateTutorial() {
+    Get.to(() => const HeartRateTutorialScreen());
+  }
+
+  void goToAddAlarm() {
+    
+  }
+}
