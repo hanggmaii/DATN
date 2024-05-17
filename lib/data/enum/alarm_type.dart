@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
+import '../../language/app_translation.dart';
 import '../hive_config/hive_constants.dart';
 
 part 'alarm_type.g.dart';
@@ -27,18 +31,45 @@ enum AlarmType {
 }
 
 extension AlarmTypeExtension on AlarmType {
-  // String get notificationRoute {
+  // Color get color {
   //   switch (this) {
   //     case AlarmType.heartRate:
-  //       return AppRoute.heartBeatScreen;
+  //       return AppColor.red;
   //     case AlarmType.bloodPressure:
-  //       return AppRoute.bloodPressureScreen;
+  //       return AppColor.primaryColor;
   //     case AlarmType.bloodSugar:
-  //       return AppRoute.bloodSugar;
+  //       return AppColor.violet;
   //     case AlarmType.weightAndBMI:
-  //       return AppRoute.weightBMI;
+  //       return AppColor.green;
   //   }
   // }
+
+  String get tr {
+    switch (this) {
+      case AlarmType.heartRate:
+        return TranslationConstants.heartRate.tr;
+      case AlarmType.bloodPressure:
+        return TranslationConstants.bloodPressure.tr;
+      case AlarmType.bloodSugar:
+        return TranslationConstants.bloodSugar.tr;
+      case AlarmType.weightAndBMI:
+        return TranslationConstants.weightAndBMI.tr;
+    }
+  }
+
+  String get trNotiDes {
+    final int randomIndex = Random(DateTime.now().microsecondsSinceEpoch).nextInt(9);
+    switch (this) {
+      case AlarmType.heartRate:
+        return TranslationConstants.heartRateNotiMsgs[randomIndex].tr;
+      case AlarmType.bloodPressure:
+        return TranslationConstants.bloodPressureNotiMsgs[randomIndex].tr;
+      case AlarmType.bloodSugar:
+        return TranslationConstants.bloodSugarNotiMsgs[randomIndex].tr;
+      case AlarmType.weightAndBMI:
+        return TranslationConstants.weightAndBMINotiMsgs[randomIndex].tr;
+    }
+  }
 
   static AlarmType fromString(String str) {
     try {

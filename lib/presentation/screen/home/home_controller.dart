@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../../data/model/alarm_model.dart';
 import '../../../model/insight_model.dart';
 import '../../../utils/insight_util.dart';
 import '../../base/base_controller.dart';
@@ -9,6 +10,8 @@ import '../all_insight_screen.dart';
 class HomeController extends BaseController {
   RxBool loadingInsight = false.obs;
   RxList<InsightModel> listInsight = RxList();
+
+  RxList<AlarmModel> alarmList = <AlarmModel>[].obs;
 
   @override
   void onReady() async {

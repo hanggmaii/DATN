@@ -5,6 +5,9 @@ class AppImage {
   static const String _pngPath = "assets/image/";
 
   static const String icBack = "${_svgPath}ic_back.svg";
+  static const String icDone = "${_svgPath}ic_done.svg";
+  static const String icCircleClose = "${_svgPath}ic_circle_close.svg";
+  static const String icWarning = "${_svgPath}ic_warning.svg";
 
   static const String imgHeartRate = "${_pngPath}img_heart_rate.png";
   static const String imgBloodPressure = "${_pngPath}img_blood_pressure.png";

@@ -1,6 +1,12 @@
+import 'dart:ui';
+
 import 'package:get/get.dart';
 
+import '../../utils/app_constants.dart';
+
 class AppController extends SuperController {
+  Locale currentLocale = AppConstant.availableLocales[1];
+
   @override
   void onDetached() {}
 
@@ -15,4 +21,9 @@ class AppController extends SuperController {
 
   @override
   void onResumed() {}
+
+  void updateLocale(Locale locale) {
+    Get.updateLocale(locale);
+    currentLocale = locale;
+  }
 }

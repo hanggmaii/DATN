@@ -9,12 +9,14 @@ import '../model/user_model.dart';
 import 'hive_constants.dart';
 
 class HiveConfig {
-  late Box<UserModel> userBox;
-  late Box<AlarmModel> alarmBox;
-  late Box<BloodPressureModel> bloodPressureBox;
-  late Box<BMIModel> bmiBox;
+  HiveConfig._();
 
-  Future<void> init() async {
+  static Box<UserModel>? userBox;
+  static Box<AlarmModel>? alarmBox;
+  static Box<BloodPressureModel>? bloodPressureBox;
+  static Box<BMIModel>? bmiBox;
+
+  static Future<void> init() async {
     final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
     Hive.init(appDocumentDirectory.path);
 
@@ -32,10 +34,10 @@ class HiveConfig {
   }
 
   void dispose() {
-    userBox.compact();
-    alarmBox.compact();
-    bloodPressureBox.compact();
-    bmiBox.compact();
+    userBox?.compact();
+    alarmBox?.compact();
+    bloodPressureBox?.compact();
+    bmiBox?.compact();
     Hive.close();
   }
 }
