@@ -4,7 +4,7 @@ import '../../../data/enum/enums.dart';
 import '../../../data/model/alarm_model.dart';
 import '../../../data/usecase/alarm_usecase.dart';
 import '../../../language/app_translation.dart';
-import '../../../model/insight_model.dart';
+import '../../../data/model/insight_model.dart';
 import '../../../utils/app_log.dart';
 import '../../../utils/insight_util.dart';
 import '../../base/base_controller.dart';

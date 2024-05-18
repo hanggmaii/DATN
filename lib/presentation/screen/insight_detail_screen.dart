@@ -2,7 +2,7 @@ import 'package:datn/presentation/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../model/insight_model.dart';
+import '../../data/model/insight_model.dart';
 import '../theme/app_color.dart';
 import '../widget/app_container.dart';
 import '../widget/app_header.dart';

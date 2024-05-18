@@ -1,4 +1,4 @@
-import '../model/insight_model.dart';
+import '../data/model/insight_model.dart';
 import 'app_constants.dart';
 import 'app_utils.dart';
 
