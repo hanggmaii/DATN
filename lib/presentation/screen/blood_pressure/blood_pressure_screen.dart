@@ -12,16 +12,17 @@ class BloodPressureScreen extends BaseScreen<BloodPressureController> {
 
   @override
   Widget buildWidgets() {
-    return const AppContainer(
+    return AppContainer(
       child: Column(
         children: [
-          AppHeader(
+          const AppHeader(
             title: "Blood pressure",
           ),
           Expanded(
             child: NoDataScreen(
               icPath: AppImage.imgBloodPressure,
               textDes: "Add your record to see statistics",
+              rejectCallback: () => controller.addAlarm(),
             ),
           )
         ],

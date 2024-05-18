@@ -85,7 +85,7 @@ class AppSnackBarWidget extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: backgroundColor!,
-            blurRadius: 6,
+            blurRadius: 10,
             offset: const Offset(0, 3),
           )
         ],
@@ -93,6 +93,7 @@ class AppSnackBarWidget extends StatelessWidget {
       padding: EdgeInsets.all(12.sp),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AppImageWidget.asset(
             path: iconPath,
@@ -101,12 +102,12 @@ class AppSnackBarWidget extends StatelessWidget {
             color: textColor,
           ),
           SizedBox(
-            width: 20.sp,
+            width: 12.sp,
           ),
           Expanded(
             child: Text(
               message,
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: textColor,
                   ),
             ),

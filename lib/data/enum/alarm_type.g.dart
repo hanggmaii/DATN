@@ -18,8 +18,6 @@ class AlarmTypeAdapter extends TypeAdapter<AlarmType> {
       case 1:
         return AlarmType.bloodPressure;
       case 2:
-        return AlarmType.bloodSugar;
-      case 3:
         return AlarmType.weightAndBMI;
       default:
         return AlarmType.heartRate;
@@ -35,11 +33,8 @@ class AlarmTypeAdapter extends TypeAdapter<AlarmType> {
       case AlarmType.bloodPressure:
         writer.writeByte(1);
         break;
-      case AlarmType.bloodSugar:
-        writer.writeByte(2);
-        break;
       case AlarmType.weightAndBMI:
-        writer.writeByte(3);
+        writer.writeByte(2);
         break;
     }
   }

@@ -18,8 +18,8 @@ class AlarmModelAdapter extends TypeAdapter<AlarmModel> {
     };
     return AlarmModel(
       id: fields[0] as String?,
-      type: fields[1] as AlarmType?,
-      time: fields[2] as DateTime?,
+      type: fields[1] as AlarmType,
+      time: fields[2] as DateTime,
       alarmDays: (fields[3] as List?)?.cast<bool>(),
     );
   }

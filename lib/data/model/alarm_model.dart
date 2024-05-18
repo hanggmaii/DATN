@@ -11,15 +11,15 @@ class AlarmModel {
   @HiveField(0)
   final String? id;
   @HiveField(1)
-  final AlarmType? type;
+  final AlarmType type;
   @HiveField(2)
-  final DateTime? time;
+  final DateTime time;
   @HiveField(3)
   final List<bool>? alarmDays;
 
   const AlarmModel({
     required this.id,
-    required this.type,
+    this.type = AlarmType.bloodPressure,
     required this.time,
     required this.alarmDays,
   });
@@ -38,7 +38,7 @@ class AlarmModel {
         id: json["id"] as String?,
         type: AlarmType.values
             .firstWhere((e) => e.toString() == json["alarmType"]),
-        time: DateTime.parse(json["time"] as String? ?? "20:00"),
+        time: DateTime.parse(json["time"] as String? ?? DateTime.now().toIso8601String()),
         alarmDays: json["alarmDays"] as List<bool>?);
   }
 
@@ -52,6 +52,7 @@ class AlarmModel {
         id: id ?? this.id,
         type: type ?? this.type,
         time: time ?? this.time,
-        alarmDays: alarmDays ?? this.alarmDays);
+      alarmDays: alarmDays ?? this.alarmDays,
+    );
   }
 }

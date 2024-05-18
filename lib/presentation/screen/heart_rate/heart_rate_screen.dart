@@ -21,6 +21,7 @@ class HeartRateScreen extends BaseScreen<HeartRateController> {
           Expanded(
             child: NoDataScreen(
               acceptCallback: () => showHeaderRateOptionDialog(controller.context),
+              rejectCallback: () => controller.addAlarm(),
             ),
           )
         ],

@@ -12,16 +12,19 @@ class WeightBmiScreen extends BaseScreen<WeightBmiController> {
 
   @override
   Widget buildWidgets() {
-    return const AppContainer(
+    return AppContainer(
       child: Column(
         children: [
-          AppHeader(
+          const AppHeader(
             title: "Weight BMI",
           ),
           Expanded(
             child: NoDataScreen(
               icPath: AppImage.imgWeightBmi,
               textDes: "Add your record to see statistics",
+              rejectCallback: () {
+                controller.addAlarm();
+              },
             ),
           )
         ],

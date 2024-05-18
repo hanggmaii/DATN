@@ -28,6 +28,7 @@ class AlarmUseCase {
         await AppNotificationLocal.cancelScheduleNotification(notiId);
       }
     }
+
     await LocalRepository.removeAlarm(alarmModel);
   }
 
@@ -60,22 +61,24 @@ class AlarmUseCase {
           nextWeekDay.year,
           nextWeekDay.month,
           nextWeekDay.day,
-          alarmModel.time!.hour,
-          alarmModel.time!.minute,
+          alarmModel.time.hour,
+          alarmModel.time.minute,
         );
-        // final androidBitMap = await AppNotificationLocal.getImageBytes(alarmModel.type!.icon);
+        final androidBitMap = await AppNotificationLocal.getImageBytes(
+          alarmModel.type.icon,
+        );
         final payload = {
-          // "type": "alarm",
-          // "route": alarmModel.type!.notificationRoute,
+          "type": "alarm",
+          "route": alarmModel.type.notificationRoute,
         };
 
         AppNotificationLocal.setupNotification(
           title: TranslationConstants.trackYourHealth.tr,
-          content: alarmModel.type!.trNotiDes,
+          content: alarmModel.type.trNotiDes,
           scheduleDateTime: scheduledDate,
           notiId: alarmModel.id.hashCode + index + 1,
           matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
-          // largeIcon: androidBitMap,
+          largeIcon: androidBitMap,
           payload: jsonEncode(payload),
         );
       }

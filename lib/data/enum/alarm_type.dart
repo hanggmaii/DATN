@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../../language/app_translation.dart';
+import '../../presentation/route/app_route.dart';
+import '../../utils/app_image.dart';
 import '../hive_config/hive_constants.dart';
 
 part 'alarm_type.g.dart';
@@ -25,8 +27,6 @@ enum AlarmType {
   @HiveField(1)
   bloodPressure,
   @HiveField(2)
-  bloodSugar,
-  @HiveField(3)
   weightAndBMI,
 }
 
@@ -44,14 +44,23 @@ extension AlarmTypeExtension on AlarmType {
   //   }
   // }
 
+  String get icon {
+    switch (this) {
+      case AlarmType.heartRate:
+        return AppImage.imgHeartRate;
+      case AlarmType.bloodPressure:
+        return AppImage.imgBloodPressure;
+      case AlarmType.weightAndBMI:
+        return AppImage.imgWeightBmi;
+    }
+  }
+
   String get tr {
     switch (this) {
       case AlarmType.heartRate:
         return TranslationConstants.heartRate.tr;
       case AlarmType.bloodPressure:
         return TranslationConstants.bloodPressure.tr;
-      case AlarmType.bloodSugar:
-        return TranslationConstants.bloodSugar.tr;
       case AlarmType.weightAndBMI:
         return TranslationConstants.weightAndBMI.tr;
     }
@@ -64,8 +73,6 @@ extension AlarmTypeExtension on AlarmType {
         return TranslationConstants.heartRateNotiMsgs[randomIndex].tr;
       case AlarmType.bloodPressure:
         return TranslationConstants.bloodPressureNotiMsgs[randomIndex].tr;
-      case AlarmType.bloodSugar:
-        return TranslationConstants.bloodSugarNotiMsgs[randomIndex].tr;
       case AlarmType.weightAndBMI:
         return TranslationConstants.weightAndBMINotiMsgs[randomIndex].tr;
     }
@@ -85,10 +92,30 @@ extension AlarmTypeExtension on AlarmType {
         return 0;
       case AlarmType.bloodPressure:
         return 1;
-      case AlarmType.bloodSugar:
-        return 2;
       case AlarmType.weightAndBMI:
-        return 3;
+        return 2;
+    }
+  }
+
+  String get title {
+    switch (this) {
+      case AlarmType.heartRate:
+        return "Heart Rate";
+      case AlarmType.bloodPressure:
+        return "Blood Pressure";
+      case AlarmType.weightAndBMI:
+        return "BMI";
+    }
+  }
+
+  String get notificationRoute {
+    switch (this) {
+      case AlarmType.heartRate:
+        return AppRoute.heartRateScreen;
+      case AlarmType.bloodPressure:
+        return AppRoute.bloodPressureScreen;
+      case AlarmType.weightAndBMI:
+        return AppRoute.weightBmiScreen;
     }
   }
 }

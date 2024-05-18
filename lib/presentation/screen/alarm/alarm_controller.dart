@@ -1,3 +1,4 @@
+import 'package:datn/presentation/dialog/delete_confirm_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../data/enum/enums.dart';
@@ -21,7 +22,15 @@ class AlarmController extends BaseController {
     alarmList.value = _homeController.alarmList;
   }
 
-  void deleteAlarm(AlarmModel alarmModel) async {
+  void onPressDeleteAlarm(int index) {
+    showDeleteConfirmDialog(context, deleteCallback: () {
+      deleteAlarm(index);
+    });
+  }
+
+  void deleteAlarm(int index) async {
+    AlarmModel alarmModel = alarmList[index];
+
     try {
       await AlarmUseCase.removeAlarm(alarmModel);
 
@@ -43,6 +52,9 @@ class AlarmController extends BaseController {
         );
       }
     }
+
+    _homeController.alarmList.removeAt(index);
+    alarmList.value = _homeController.alarmList;
   }
 
   @override

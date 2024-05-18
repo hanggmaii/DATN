@@ -35,30 +35,32 @@ class AppNotificationLocal {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
     flutterLocalNotificationsPlugin.zonedSchedule(
-        notiId,
-        title,
-        content,
-        scheduleDateTime,
-        NotificationDetails(
-            android: AndroidNotificationDetails(
-              'blood_pressure_notiId',
-              'Blood Pressure Notifications',
-              channelDescription: 'Blood Pressure Notifications Des',
-              icon: androidIconPath ?? "@mipmap/ic_launcher",
-              priority: Priority.high,
-              importance: Importance.max,
-              largeIcon: largeIcon,
-            ),
-            iOS: const DarwinNotificationDetails(
-              presentAlert: true,
-              presentBadge: true,
-              presentSound: true,
-              sound: "default",
-            )),
-        payload: payload,
-        androidAllowWhileIdle: true,
-        matchDateTimeComponents: matchDateTimeComponents ?? DateTimeComponents.dayOfMonthAndTime,
-        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime);
+      notiId,
+      title,
+      content,
+      scheduleDateTime,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          'blood_pressure_notiId',
+          'Blood Pressure Notifications',
+          channelDescription: 'Blood Pressure Notifications Des',
+          icon: androidIconPath ?? "@mipmap/ic_launcher",
+          priority: Priority.high,
+          importance: Importance.max,
+          largeIcon: largeIcon,
+        ),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentBadge: true,
+          presentSound: true,
+          sound: "default",
+        ),
+      ),
+      payload: payload,
+      androidAllowWhileIdle: true,
+      matchDateTimeComponents: matchDateTimeComponents ?? DateTimeComponents.dayOfMonthAndTime,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
     debugPrint('-------Notification Added with ID: $notiId--------');
   }
 
@@ -74,14 +76,20 @@ class AppNotificationLocal {
     if (Permission.notification.isBlank == true) {
       await Permission.notification.request();
     }
+
     const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const DarwinInitializationSettings initializationSettingsIOS =
-        DarwinInitializationSettings(onDidReceiveLocalNotification: onDidReceiveLocalNotification);
-    const InitializationSettings initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    const DarwinInitializationSettings initializationSettingsIOS = DarwinInitializationSettings(
+      onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+    );
+    const InitializationSettings initializationSettings = InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+    );
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onDidReceiveNotificationResponse: onTapNotification);
+    await flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: onTapNotification,
+    );
 
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
