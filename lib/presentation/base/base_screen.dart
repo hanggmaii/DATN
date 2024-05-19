@@ -5,7 +5,7 @@ import '../widget/app_loading.dart';
 import 'base_controller.dart';
 
 abstract class BaseScreen<T extends BaseController> extends GetView<T> {
-  const BaseScreen({Key? key}) : super(key: key);
+  const BaseScreen({super.key});
 
   Widget buildWidgets();
 

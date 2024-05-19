@@ -1,4 +1,3 @@
-import 'package:datn/presentation/screen/home/widget/insight_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,6 +6,7 @@ import '../theme/app_color.dart';
 import '../widget/app_container.dart';
 import '../widget/app_header.dart';
 import 'home/home_controller.dart';
+import 'home/widget/insight_widget.dart';
 
 class AllInsightScreen extends StatelessWidget {
   const AllInsightScreen({super.key});

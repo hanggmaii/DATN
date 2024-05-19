@@ -46,7 +46,6 @@ class AlarmUseCase {
     return LocalRepository.getAlarms();
   }
 
-  // TODO:: alarm icon
   static void _addAlarmNotification(AlarmModel alarmModel) async {
     for (int index = 0; index < alarmModel.alarmDays!.length; index++) {
       final bool isSelected = alarmModel.alarmDays![index];

@@ -5,7 +5,7 @@ import '../theme/app_color.dart';
 
 class AppContainer extends GetView {
   const AppContainer({
-    Key? key,
+    super.key,
     this.appBar,
     this.onWillPop,
     this.bottomNavigationBar,
@@ -20,7 +20,7 @@ class AppContainer extends GetView {
     this.rightPadding,
     this.bottomPadding,
     this.onPopInvoked,
-  }) : super(key: key);
+  });
 
   final PreferredSizeWidget? appBar;
   final Future<bool> Function()? onWillPop;

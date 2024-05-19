@@ -15,11 +15,21 @@ class AlarmController extends BaseController {
   final HomeController _homeController = Get.find<HomeController>();
   RxList<AlarmModel> alarmList = <AlarmModel>[].obs;
 
+  RxBool isShowBackground = false.obs;
+
   @override
   void onInit() {
     super.onInit();
 
     alarmList.value = _homeController.alarmList;
+  }
+
+  void showBackground() {
+    isShowBackground.value = true;
+  }
+
+  void hideBackground() {
+    isShowBackground.value = false;
   }
 
   void onPressDeleteAlarm(int index) {
@@ -29,6 +39,8 @@ class AlarmController extends BaseController {
   }
 
   void deleteAlarm(int index) async {
+    showLoading();
+
     AlarmModel alarmModel = alarmList[index];
 
     try {
@@ -53,37 +65,19 @@ class AlarmController extends BaseController {
       }
     }
 
-    _homeController.alarmList.removeAt(index);
-    alarmList.value = _homeController.alarmList;
-  }
-
-  @override
-  void refresh() async {
-    alarmList.value = await AlarmUseCase.getAlarms();
+    hideLoading();
   }
 
   void addAlarm(AlarmModel alarmModel) async {
-    try {
-      await AlarmUseCase.addAlarm(alarmModel);
+    _homeController.addAlarm(alarmModel);
+  }
 
-      refresh();
+  @override
+  void refresh() {
+    super.refresh();
 
-      if (context.mounted) {
-        showTopSnackBar(
-          context,
-          message: TranslationConstants.addAlarmSuccess.tr,
-          type: SnackBarType.done,
-        );
-      }
-    } on Exception catch (_) {
-      if (context.mounted) {
-        showTopSnackBar(
-          context,
-          message: TranslationConstants.addAlarmFailed.tr,
-          type: SnackBarType.error,
-        );
-      }
-    }
+    _homeController.refresh();
+    alarmList.value = _homeController.alarmList;
   }
 
   void updateAlarm(AlarmModel alarmModel) async {

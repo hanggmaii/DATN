@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 
 import '../../../data/enum/enums.dart';
 import '../../../data/model/alarm_model.dart';
+import '../../../data/model/insight_model.dart';
 import '../../../data/usecase/alarm_usecase.dart';
 import '../../../language/app_translation.dart';
-import '../../../data/model/insight_model.dart';
 import '../../../utils/app_log.dart';
 import '../../../utils/insight_util.dart';
 import '../../base/base_controller.dart';
@@ -26,7 +26,7 @@ class HomeController extends BaseController {
 
     listInsight.value = await InsightUtil.loadInsight();
 
-    alarmList.value = await AlarmUseCase.getAlarms();
+    await refresh();
 
     loadingInsight.value = false;
   }
@@ -35,9 +35,7 @@ class HomeController extends BaseController {
     try {
       await AlarmUseCase.addAlarm(alarmModel);
 
-      alarmList.add(alarmModel);
-
-      AppLog.debug("Add alarm success");
+      refresh();
 
       if (context.mounted) {
         showTopSnackBar(
@@ -55,6 +53,46 @@ class HomeController extends BaseController {
         );
       }
     }
+  }
+
+  void updateAlarm(AlarmModel alarmModel) async {
+    AppLog.debug("updateAlarm.alarmModel.id: ${alarmModel.id}");
+    for (final AlarmModel model in alarmList) {
+      AppLog.debug("updateAlarm.model: ${model.id}");
+    }
+
+    try {
+      await AlarmUseCase.updateAlarm(alarmModel);
+
+      refresh();
+
+      if (context.mounted) {
+        showTopSnackBar(
+          context,
+          message: TranslationConstants.updateAlarmSuccess.tr,
+          type: SnackBarType.done,
+        );
+      }
+    } on Exception catch (_) {
+      if (context.mounted) {
+        showTopSnackBar(
+          context,
+          message: TranslationConstants.updateAlarmFailed.tr,
+          type: SnackBarType.error,
+        );
+      }
+    }
+  }
+
+  @override
+  Future<void> refresh() async {
+    super.refresh();
+
+    isShowLoading.value = true;
+
+    alarmList.value = await AlarmUseCase.getAlarms();
+
+    isShowLoading.value = false;
   }
 
   void goToAllInsightScreen() {
