@@ -17,7 +17,7 @@ class AppTouchable extends StatelessWidget {
   final double? radius;
 
   const AppTouchable({
-    Key? key,
+    super.key,
     required this.onPressed,
     this.onLongPressed,
     required this.child,
@@ -31,7 +31,7 @@ class AppTouchable extends StatelessWidget {
     this.outlinedBorder,
     this.decoration,
     this.radius,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

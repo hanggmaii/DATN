@@ -1,4 +1,3 @@
-import '../../utils/app_config.dart';
 import '../../utils/share_preference_utils.dart';
 import '../hive_config/hive_config.dart';
 import '../hive_config/hive_constants.dart';
@@ -73,14 +72,6 @@ class LocalRepository {
   }
 
   static List<BMIModel> getAllBMI() => HiveConfig.bmiBox?.values.toList() ?? [];
-
-  static Future<bool> setWeightUnitId(int id) => SharePreferenceUtils.setInt(AppConfig.weightUnitIdKey, id);
-
-  static int? getWeightUnitId() => SharePreferenceUtils.getInt(AppConfig.weightUnitIdKey);
-
-  static Future<bool> setHeightUnitId(int id) => SharePreferenceUtils.setInt(AppConfig.heightUnitIdKey, id);
-
-  static int? getHeightUnitId() => SharePreferenceUtils.getInt(AppConfig.heightUnitIdKey);
 
   static Future<void> updateBMI(BMIModel bmi) async {
     await HiveConfig.bmiBox?.put(bmi.key, bmi);

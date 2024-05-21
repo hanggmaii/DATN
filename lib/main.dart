@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 
 import 'data/hive_config/hive_config.dart';
@@ -19,6 +20,8 @@ Future<void> main() async {
   await SharePreferenceUtils.init();
 
   await HiveConfig.init();
+
+  await initializeDateFormatting();
 
   AppNotificationLocal.initNotificationLocal();
   tz.initializeTimeZones();

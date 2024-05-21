@@ -139,20 +139,6 @@ class AppDialog extends StatelessWidget {
         buttonText: firstButtonText,
         onPressButton: firstButtonCallback ?? Get.back,
       );
-
-      // return AppButton(
-      //   height: 60.0.sp,
-      //   width: Get.width,
-      //   onPressed: firstButtonCallback ?? Get.back,
-      //   text: firstButtonText,
-      //   color: AppColor.primaryColor,
-      //   radius: 10.0.sp,
-      //   child: Text(
-      //     firstButtonText,
-      //     textAlign: TextAlign.center,
-      //     style: AppTextTheme.fw600ts14(AppColor.defaultTextColor),
-      //   ),
-      // );
     }
 
     return Row(
@@ -162,39 +148,13 @@ class AppDialog extends StatelessWidget {
             onPressButton: secondButtonCallback,
             buttonText: secondButtonText ?? '',
           ),
-          // child: AppButton(
-          //   onPressed: secondButtonCallback,
-          //   height: 60.0.sp,
-          //   width: Get.width,
-          //   text: secondButtonText,
-          //   color: AppColor.primaryColor,
-          //   radius: 10.0.sp,
-          //   child: Text(
-          //     secondButtonText ?? '',
-          //     textAlign: TextAlign.center,
-          //     style: AppTextTheme.fw600ts14(AppColor.defaultTextColor),
-          //   ),
-          // ),
         ),
         SizedBox(width: 8.0.sp),
         Expanded(
-           child: AcceptButton(
-             onPressButton: firstButtonCallback ?? Get.back,
-             buttonText: firstButtonText,
-           ),
-          // child: AppButton(
-          //   height: 60.0.sp,
-          //   width: Get.width,
-          //   onPressed: firstButtonCallback ?? Get.back,
-          //   text: firstButtonText,
-          //   color: AppColor.primaryColor,
-          //   radius: 10.0.sp,
-          //   child: Text(
-          //     firstButtonText,
-          //     textAlign: TextAlign.center,
-          //     style: AppTextTheme.fw600ts14(AppColor.defaultTextColor),
-          //   ),
-          // ),
+          child: AcceptButton(
+            onPressButton: firstButtonCallback ?? Get.back,
+            buttonText: firstButtonText,
+          ),
         ),
       ],
     );
@@ -233,7 +193,7 @@ class AppDialog extends StatelessWidget {
                             ? Text(
                                 title!,
                                 textAlign: TextAlign.center,
-                                style: AppTextTheme.fw600ts14(
+                                style: AppTextTheme.fw600ts16(
                                   AppColor.defaultTextColor,
                                 ),
                               )
@@ -245,7 +205,8 @@ class AppDialog extends StatelessWidget {
                                   message!,
                                   textAlign: TextAlign.center,
                                   style: AppTextTheme.fw400ts14(AppColor.defaultTextColor),
-                                ))
+                                ),
+                              )
                             : const SizedBox.shrink(),
                         widgetBody ??
                             Column(

@@ -39,6 +39,17 @@ class AppTextTheme {
     );
   }
 
+  static TextStyle? fw500ts12(Color color) {
+    return TextStyle(
+      color: color,
+      fontWeight: FontWeight.w500,
+      fontSize: 12.0.sp,
+      fontFamily: fontFamily,
+      fontStyle: FontStyle.normal,
+      letterSpacing: 0,
+    );
+  }
+
   static TextStyle? fw600ts20(Color color) {
     return TextStyle(
       color: color,

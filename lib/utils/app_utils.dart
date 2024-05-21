@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -25,5 +26,9 @@ class AppUtils {
       textColor: AppColor.white,
       fontSize: 16.0,
     );
+  }
+
+  static void hideKeyboard() {
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 }

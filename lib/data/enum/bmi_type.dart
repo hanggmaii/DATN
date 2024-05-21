@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../language/app_translation.dart';
+import '../../presentation/theme/app_color.dart';
 
 class BMITypeEnum {
   static BMIType getBMITypeByValue(int bmi) {
@@ -119,26 +120,26 @@ extension BMITypeExtension on BMIType {
     }
   }
 
-  // Color get color {
-  //   switch (this) {
-  //     case BMIType.verySeverelyUnderweight:
-  //       return AppColor.violet;
-  //     case BMIType.severelyUnderweight:
-  //       return AppColor.deepViolet;
-  //     case BMIType.underweight:
-  //       return AppColor.primaryColor;
-  //     case BMIType.normal:
-  //       return AppColor.green;
-  //     case BMIType.overweight:
-  //       return AppColor.gold;
-  //     case BMIType.obeseClassI:
-  //       return AppColor.lightOrange;
-  //     case BMIType.obeseClassII:
-  //       return AppColor.orange;
-  //     case BMIType.obeseClassIII:
-  //       return AppColor.lightRed;
-  //   }
-  // }
+  Color get color {
+    switch (this) {
+      case BMIType.verySeverelyUnderweight:
+        return AppColor.violet;
+      case BMIType.severelyUnderweight:
+        return AppColor.deepViolet;
+      case BMIType.underweight:
+        return AppColor.primaryColor;
+      case BMIType.normal:
+        return AppColor.green;
+      case BMIType.overweight:
+        return AppColor.gold;
+      case BMIType.obeseClassI:
+        return AppColor.lightOrange;
+      case BMIType.obeseClassII:
+        return AppColor.orange;
+      case BMIType.obeseClassIII:
+        return AppColor.lightRed;
+    }
+  }
 
   int get id {
     switch (this) {

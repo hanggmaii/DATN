@@ -4,9 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/app_image.dart';
 import '../theme/app_color.dart';
 import '../theme/app_text_theme.dart';
-import '../widget/accept_button.dart';
 import '../widget/app_image_widget.dart';
-import '../widget/reject_button.dart';
+import 'weight_bmi/widget/add_data_group_button.dart';
 
 class NoDataScreen extends StatelessWidget {
   const NoDataScreen({
@@ -44,19 +43,11 @@ class NoDataScreen extends StatelessWidget {
           style: AppTextTheme.fw400ts14(AppColor.secondTextColor),
         ),
         const Spacer(),
-        AcceptButton(
-          onPressButton: () => acceptCallback?.call(),
-          buttonText: acceptText,
-        ),
-        SizedBox(
-          height: 12.0.sp,
-        ),
-        RejectButton(
-          onPressButton: () => rejectCallback?.call(),
-          buttonText: rejectText,
-        ),
-        SizedBox(
-          height: 24.0.sp,
+        AddDataGroupButton(
+          acceptText: acceptText,
+          rejectText: rejectText,
+          acceptCallback: acceptCallback,
+          rejectCallback: rejectCallback,
         ),
       ],
     );
