@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:get/get.dart';
 
 import '../../data/model/user_model.dart';
+import '../../data/usecase/local_repository.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/share_preference_utils.dart';
 

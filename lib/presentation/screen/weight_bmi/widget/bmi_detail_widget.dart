@@ -125,35 +125,43 @@ class BMIDetailWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppTouchable(
-                  width: 40.0.sp,
-                  height: 40.0.sp,
-                  onPressed: onDelete,
-                  child: AppImageWidget.asset(
-                    path: AppImage.icTrash,
+            SizedBox(
+              width: 24.0.sp,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppTouchable(
+                    width: 40.0.sp,
+                    height: 40.0.sp,
+                    onPressed: onDelete,
+                    child: AppImageWidget.asset(
+                      path: AppImage.icTrash,
+                    ),
                   ),
-                ),
-                SizedBox(height: 12.0.sp,),
-                Container(
-                  decoration: BoxDecoration(
-                    color: bmiType.color,
-                    borderRadius: BorderRadius.circular(60),
+                  SizedBox(
+                    height: 12.0.sp,
                   ),
-                  padding: EdgeInsets.symmetric(
-                    vertical: 6.0.sp,
-                    horizontal: 12.0.sp,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: bmiType.color,
+                      borderRadius: BorderRadius.circular(60),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 6.0.sp,
+                      horizontal: 12.0.sp,
+                    ),
+                    child: Text(
+                      bmiType.bmiName,
+                      textAlign: TextAlign.center,
+                      style: AppTextTheme.fw600ts16(AppColor.white),
+                    ),
                   ),
-                  child: Text(
-                    bmiType.bmiName,
-                    style: AppTextTheme.fw600ts16(AppColor.white),
-                  ),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       ),

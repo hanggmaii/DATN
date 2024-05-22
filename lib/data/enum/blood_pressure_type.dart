@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../language/app_translation.dart';
+import '../../presentation/theme/app_color.dart';
 
 class BloodPressureTyeEnum {
   static BloodPressureType getBloodPressureTypeById(int? id) {
@@ -104,6 +106,23 @@ extension BloodPressureTypeExtension on BloodPressureType {
         return TranslationConstants.hypertensionStage2Message.tr;
       case BloodPressureType.hypertensionCrisis:
         return TranslationConstants.hypertensionCrisisMessage.tr;
+    }
+  }
+
+  Color get color {
+    switch (this) {
+      case BloodPressureType.hypotension:
+        return AppColor.primaryColor;
+      case BloodPressureType.normal:
+        return AppColor.green;
+      case BloodPressureType.elevated:
+        return AppColor.gold;
+      case BloodPressureType.hypertensionStage1:
+        return AppColor.lightOrange;
+      case BloodPressureType.hypertensionStage2:
+        return AppColor.orange;
+      case BloodPressureType.hypertensionCrisis:
+        return AppColor.lightRed;
     }
   }
 }

@@ -17,31 +17,33 @@ class AlarmScreen extends BaseScreen<AlarmController> {
     return AppContainer(
       child: Stack(
         children: [
-          Column(
-            children: [
-              const AppHeader(
-                title: "Alarm",
-              ),
-              Expanded(
-                child: Obx(
-                  () => ListView.builder(
-                    padding: EdgeInsets.only(
-                      left: 16.0.sp,
-                      right: 16.0.sp,
-                      bottom: 16.0.sp,
+          Positioned.fill(
+            child: Column(
+              children: [
+                const AppHeader(
+                  title: "Alarm",
+                ),
+                Expanded(
+                  child: Obx(
+                    () => ListView.builder(
+                      padding: EdgeInsets.only(
+                        left: 16.0.sp,
+                        right: 16.0.sp,
+                        bottom: 16.0.sp,
+                      ),
+                      scrollDirection: Axis.vertical,
+                      itemCount: controller.alarmList.length,
+                      itemBuilder: (context, index) {
+                        return AlarmHorizontalWidget(
+                          controller: controller,
+                          index: index,
+                        );
+                      },
                     ),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: controller.alarmList.length,
-                    itemBuilder: (context, index) {
-                      return AlarmHorizontalWidget(
-                        controller: controller,
-                        index: index,
-                      );
-                    },
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const AddAlarmButton(),
         ],

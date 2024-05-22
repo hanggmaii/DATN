@@ -15,6 +15,7 @@ class AppImage {
   static const String icFemale = "${_svgPath}ic_female.svg";
   static const String icMale = "${_svgPath}ic_male.svg";
   static const String icMaleFemale = "${_svgPath}ic_male_female.svg";
+  static const String icFilter = "${_svgPath}ic_filter.svg";
 
   static const String imgHeartRate = "${_pngPath}img_heart_rate.png";
   static const String imgBloodPressure = "${_pngPath}img_blood_pressure.png";
