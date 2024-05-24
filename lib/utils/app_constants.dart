@@ -7,6 +7,9 @@ class AppConstant {
 
   static String insightAsset = "assets/json/insight.json";
 
+  static const int minHeartRate = 40;
+  static const int maxHeartRate = 220;
+
   static final availableLocales = [
     const Locale('vi', 'VN'),
     const Locale('en', 'US'),

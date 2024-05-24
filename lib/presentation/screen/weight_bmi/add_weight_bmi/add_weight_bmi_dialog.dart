@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/model/bmi_model.dart';
-import '../../../../language/app_translation.dart';
 import '../../../../utils/app_image.dart';
 import '../../../dialog/add_data_dialog.dart';
 import '../../../theme/app_color.dart';
@@ -139,7 +138,7 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
             ],
           ),
           SizedBox(
-            height: 28.sp,
+            height: 12.sp,
           ),
           Obx(
             () => Row(
@@ -182,61 +181,7 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
             ),
           ),
           SizedBox(
-            height: 30.sp,
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppTouchable(
-                onPressed: () => controller.onPressedAge(context),
-                padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
-                child: Obx(
-                  () => Text(
-                    '${TranslationConstants.age.tr}: ${controller.age.value}',
-                    style: AppTextTheme.fw400ts14(AppColor.black)?.merge(
-                      const TextStyle(
-                        shadows: [
-                          Shadow(
-                            color: AppColor.grayText2,
-                            offset: Offset(0, -5),
-                          ),
-                        ],
-                        color: Colors.transparent,
-                        decoration: TextDecoration.underline,
-                        decorationColor: AppColor.grayText2,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(width: 12.0.sp),
-              AppTouchable(
-                onPressed: () => controller.onPressGender(context),
-                padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
-                child: Obx(() {
-                  return Text(
-                    controller.gender['nameEN'],
-                    style: AppTextTheme.fw400ts14(AppColor.black)?.merge(
-                      const TextStyle(
-                        shadows: [
-                          Shadow(
-                            color: AppColor.grayText2,
-                            offset: Offset(0, -5),
-                          ),
-                        ],
-                        color: Colors.transparent,
-                        decoration: TextDecoration.underline,
-                        decorationColor: AppColor.grayText2,
-                      ),
-                    ),
-                  );
-                }),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 36.sp,
+            height: 12.sp,
           )
         ],
       ),

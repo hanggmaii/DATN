@@ -7,4 +7,5 @@ class AppRoute {
   static String bloodPressureScreen = "/blood_pressure_screen";
   static String weightBmiScreen = "/weight_bmi_screen";
   static String alarmScreen = "/alarm_screen";
+  static String measureScreen = "/measure_screen";
 }

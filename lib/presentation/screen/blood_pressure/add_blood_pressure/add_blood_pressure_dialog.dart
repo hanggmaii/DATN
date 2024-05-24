@@ -33,6 +33,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
     if (bloodPressureModel != null) {
       controller.onEdit(bloodPressureModel!);
     }
+
     return AppDialog(
       firstButtonText: bloodPressureModel != null ? TranslationConstants.save.tr : TranslationConstants.add.tr,
       firstButtonCallback: () => _onAddData(),
@@ -234,12 +235,10 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
             height: 12.sp,
           ),
           Obx(
-            () => Flexible(
-              child: Text(
-                controller.bloodPressureType.value.message,
-                style: AppTextTheme.fw400ts14(AppColor.defaultTextColor),
-                textAlign: TextAlign.center,
-              ),
+            () => Text(
+              controller.bloodPressureType.value.message,
+              style: AppTextTheme.fw400ts14(AppColor.defaultTextColor),
+              textAlign: TextAlign.center,
             ),
           ),
           SizedBox(

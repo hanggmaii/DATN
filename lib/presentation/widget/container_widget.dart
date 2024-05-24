@@ -33,7 +33,7 @@ class ContainerWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius ?? 10.0.sp),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xff000000).withOpacity(shadowOpacity ?? 0.25),
+            color: const Color(0xFF000000).withOpacity(shadowOpacity ?? 0.15),
             offset: const Offset(0, 0),
             blurRadius: 10.0.sp,
           ),

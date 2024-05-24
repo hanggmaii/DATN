@@ -6,6 +6,7 @@ import '../screen/blood_pressure/blood_pressure_binding.dart';
 import '../screen/blood_pressure/blood_pressure_screen.dart';
 import '../screen/heart_rate/heart_rate_binding.dart';
 import '../screen/heart_rate/heart_rate_screen.dart';
+import '../screen/heart_rate/measure/measure_screen.dart';
 import '../screen/home/home_binding.dart';
 import '../screen/home/home_screen.dart';
 import '../screen/splash/splash_binding.dart';
@@ -47,6 +48,11 @@ class AppPage {
       name: AppRoute.alarmScreen,
       page: () => const AlarmScreen(),
       binding: AlarmBinding(),
+    ),
+    GetPage(
+      name: AppRoute.measureScreen,
+      page: () => const MeasureScreen(),
+      binding: HeartRateBinding(),
     ),
   ];
 }

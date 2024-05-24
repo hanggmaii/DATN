@@ -1,14 +1,15 @@
-import 'package:datn/presentation/widget/accept_button.dart';
-import 'package:datn/presentation/widget/app_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_image.dart';
+import '../widget/accept_button.dart';
 import '../widget/app_container.dart';
 import '../widget/app_header.dart';
+import '../widget/app_image_widget.dart';
+import 'heart_rate/measure/measure_controller.dart';
 
-class HeartRateTutorialScreen extends StatelessWidget {
+class HeartRateTutorialScreen extends GetWidget<MeasureController> {
   const HeartRateTutorialScreen({super.key});
 
   @override
@@ -25,8 +26,9 @@ class HeartRateTutorialScreen extends StatelessWidget {
             width: Get.width * 0.9,
           ),
           const Spacer(),
-          const AcceptButton(
+          AcceptButton(
             buttonText: "Measure now",
+            onPressButton: controller.onPressStartMeasure,
           ),
           SizedBox(
             height: 24.0.sp,

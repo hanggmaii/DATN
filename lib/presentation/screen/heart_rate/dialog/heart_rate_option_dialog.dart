@@ -23,7 +23,6 @@ class HeartRateOptionDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final HomeController homeController = Get.find<HomeController>();
     final HeartRateController heartRateController = Get.find<HeartRateController>();
 
     return AlertDialog(
@@ -50,8 +49,8 @@ class HeartRateOptionDialog extends StatelessWidget {
               children: [
                 AppTouchable(
                   onPressed: () {
-                    heartRateController.goToHeartRateTutorial();
                     Get.back();
+                    heartRateController.onPressMeasureNow();
                   },
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0.sp),
@@ -84,6 +83,7 @@ class HeartRateOptionDialog extends StatelessWidget {
                 AppTouchable(
                   onPressed: () {
                     Get.back();
+                    heartRateController.onPressAddData();
                   },
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0.sp),

@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:get/get.dart';
 
+import '../../data/model/heart_rate_model.dart';
 import '../../data/model/user_model.dart';
 import '../../data/usecase/local_repository.dart';
 import '../../utils/app_constants.dart';
@@ -12,6 +13,10 @@ class AppController extends SuperController {
   Locale currentLocale = AppConstant.availableLocales[1];
 
   Rx<UserModel> currentUser = UserModel().obs;
+
+  RxList<Map> chartListData = RxList();
+  RxList<HeartRateModel> listHeartRateModel = RxList();
+  List<HeartRateModel> listHeartRateModelAll = [];
 
   @override
   void onDetached() {}

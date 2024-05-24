@@ -137,6 +137,7 @@ class BMIDetailWidget extends StatelessWidget {
                     width: 40.0.sp,
                     height: 40.0.sp,
                     onPressed: onDelete,
+                    padding: EdgeInsets.all(8.0.sp),
                     child: AppImageWidget.asset(
                       path: AppImage.icTrash,
                     ),
