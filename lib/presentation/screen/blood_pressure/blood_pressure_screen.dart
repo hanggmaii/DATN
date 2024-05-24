@@ -34,14 +34,16 @@ class BloodPressureScreen extends BaseScreen<BloodPressureController> {
           AppHeader(
             title: "Blood pressure",
             extendWidget: Obx(
-              () => FilterDateWidget(
-                startDate: controller.filterStartDate.value,
-                endDate: controller.filterEndDate.value,
-                onPressed: () => controller.onPressDateRange(
-                  controller.context,
-                  callback: controller.filterBloodPressure,
-                ),
-              ),
+              () => controller.bloodPressures.isEmpty
+                  ? const SizedBox.shrink()
+                  : FilterDateWidget(
+                      startDate: controller.filterStartDate.value,
+                      endDate: controller.filterEndDate.value,
+                      onPressed: () => controller.onPressDateRange(
+                        controller.context,
+                        callback: controller.filterBloodPressure,
+                      ),
+                    ),
             ),
           ),
           Expanded(

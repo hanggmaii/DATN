@@ -7,6 +7,7 @@ class ContainerWidget extends StatelessWidget {
   final Widget? child;
   final double? radius;
   final EdgeInsets? padding;
+  final EdgeInsets? margin;
   final double? shadowOpacity;
   final double? width;
   final double? height;
@@ -16,6 +17,7 @@ class ContainerWidget extends StatelessWidget {
     this.child,
     this.radius,
     this.padding,
+    this.margin,
     this.shadowOpacity,
     this.width,
     this.height,
@@ -38,6 +40,7 @@ class ContainerWidget extends StatelessWidget {
         ],
       ),
       padding: padding,
+      margin: margin,
       child: child,
     );
   }

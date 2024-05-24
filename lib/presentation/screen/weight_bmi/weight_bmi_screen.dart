@@ -13,6 +13,7 @@ import '../../theme/app_color.dart';
 import '../../theme/app_text_theme.dart';
 import '../../widget/app_container.dart';
 import '../../widget/app_header.dart';
+import '../../widget/filter/filter_date_widget.dart';
 import '../no_data_screen.dart';
 import 'weight_bmi_controller.dart';
 import 'widget/add_data_group_button.dart';
@@ -30,8 +31,20 @@ class WeightBmiScreen extends BaseScreen<WeightBmiController> {
     return AppContainer(
       child: Column(
         children: [
-          const AppHeader(
+          AppHeader(
             title: "Weight BMI",
+            extendWidget: Obx(
+              () => controller.bmiList.value.isEmpty
+                  ? const SizedBox.shrink()
+                  : FilterDateWidget(
+                      startDate: controller.filterStartDate.value,
+                      endDate: controller.filterEndDate.value,
+                      onPressed: () => controller.onPressDateRange(
+                        controller.context,
+                        callback: controller.filterWeightBMI,
+                      ),
+                    ),
+            ),
           ),
           Expanded(
             child: Obx(() {

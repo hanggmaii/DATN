@@ -14,8 +14,8 @@ mixin DateTimeMixin {
     required TimeOfDay initialTime,
     TimePickerEntryMode? mode,
     Color? primaryColor,
-  }) {
-    return showTimePicker(
+  }) async {
+    return await showTimePicker(
       context: context,
       initialTime: initialTime,
       initialEntryMode: mode ?? TimePickerEntryMode.dialOnly,
@@ -86,16 +86,18 @@ mixin DateTimeMixin {
     );
   }
 
-  Future onPressDateRange(
+  Future<void> onPressDateRange(
     BuildContext context, {
     Function()? callback,
   }) async {
     DateTimeRange? result = await onSelectDateRange(
-        context: context,
-        initialDateRange: DateTimeRange(
-          start: filterStartDate.value,
-          end: filterEndDate.value,
-        ));
+      context: context,
+      initialDateRange: DateTimeRange(
+        start: filterStartDate.value,
+        end: filterEndDate.value,
+      ),
+    );
+
     if (result != null) {
       filterStartDate.value = DateTime(result.start.year, result.start.month, result.start.day);
       filterEndDate.value = DateTime(result.end.year, result.end.month, result.end.day, 23, 59, 59);

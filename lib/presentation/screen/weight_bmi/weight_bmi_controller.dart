@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:datn/data/usecase/bmi_usecase.dart';
+import 'package:datn/presentation/dialog/delete_confirm_dialog.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -130,7 +131,11 @@ class WeightBmiController extends BaseController with DateTimeMixin {
     _generateDataChart();
   }
 
-  void onDeleteBMI() async {
+  void onDeleteBMI() {
+    showDeleteConfirmDialog(context, deleteCallback: _onDeleteBMI);
+  }
+
+  void _onDeleteBMI() async {
     await BmiUseCase.deleteBMI(currentBMI.value.key ?? '');
 
     filterWeightBMI();
